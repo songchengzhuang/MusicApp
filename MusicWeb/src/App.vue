@@ -72,4 +72,14 @@ span {
 ul {
   list-style: none;
 }
+ul,
+menu,
+dir {
+  display: block;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+}
 </style>

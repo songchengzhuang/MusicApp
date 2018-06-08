@@ -2,7 +2,7 @@
 <template>
   <div class="musicSortWrapper" ref="musicSortWrapper">
     <ul class="musicSort">
-      <li class="sortUnit" :style="'background:url('+item.bgImgUrl+') no-repeat center'" v-for="item of SortUnitListData" :key="item.idx" @click="musicTap(item.idx)">
+      <li class="sortUnit" v-for="item of SortUnitListData" :key="item.idx" :style="'background:url('+item.bgImgUrl+') no-repeat center'" @click="musicTap(item.idx)">
         <div class="gradual"></div>
         <span class="unitName" v-text="item.sortName"></span>
       </li>
@@ -42,21 +42,22 @@ export default {
 .musicSortWrapper {
   overflow: hidden;
   position: absolute;
-  top: 5rem;
+  top: 4rem;
   right: 0;
   bottom: 0;
   left: 0;
 }
 
 .musicSort {
-  padding: 0px;
+  padding: 6px 0;
 }
 .musicSort .sortUnit {
   font-size: 2.6rem;
   font-weight: 600;
   line-height: 24vw;
   text-align: center;
-  margin: 20px 16px;
+  margin: 10px 16px;
+  margin-bottom: 20px;
   height: 24vw;
   border-radius: 6px;
   box-shadow: 3px 4px 16px #666;
@@ -78,9 +79,10 @@ export default {
 }
 .unitName {
   /*图片文字样式*/
-  background: url(http://www.cnhubei.com/xwzt/2015/2015snjlx/snjfj/201509/W020150930775925767248.jpg)
+  background: url(http://www.kedo.gov.cn/upload/resources/image/2015/05/20/143208832795611564.jpg)
     no-repeat center;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+  background-clip: text;
 }
 </style>

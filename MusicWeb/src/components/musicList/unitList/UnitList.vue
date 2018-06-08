@@ -1,15 +1,24 @@
 <template>
   <div class="UnitListWrapper" ref="UnitListWrapper">
-    <div class="UnitList">
+    <div class="UnitList" :key="musicObjData.creator.avatarImgIdStr+musicObjData.creator.birthday">
       <div class="unitTitle">
-        <img class="titImg" src="../../../assets/001.png" alt="图片">
+        <img class="titImg" :src="musicObjData.creator.avatarUrl" :alt="musicObjData.creator.backgroundImgId">
         <div class="titName txt-2-ellipsis">
-          <p class="txt-2-ellipsis">歌单名字歌单名字歌单名字歌单名字歌单名字歌单名字歌单名字歌单名字歌单名字歌单名字歌单名字</p>
-          <p class="txt-1-ellipsis">作者单名字歌单名字歌单名字歌单名字歌单名字歌单名字歌单</p>
+          <p class="txt-2-ellipsis" v-text="musicObjData.creator.signature"></p>
+          <p class="txt-1-ellipsis" v-text="musicObjData.creator.nickname"></p>
         </div>
       </div>
       <ul class="unituL">
-        <li class="unitLi" v-for="(item , index) of 15" :key="item">{{index+1}}答案</li>
+        <li class="unitLi txt-1-ellipsis" v-for="(item , index) of musicObjData.tracks" :key="item.id+index">
+          <div class="unitTxt txt-1-ellipsis">
+            <span class="musicIndex" v-text="index+1"></span>
+            <span class="musicName" v-text="item.name"></span>
+            <span class="SingerName">
+              <span v-for="(itemSinger,index) of item.ar" :key="index" v-text="item.ar.length==(index+1)?itemSinger.name:(itemSinger.name+'、')"></span>
+            </span>
+          </div>
+          <!-- <span>图标</span> -->
+        </li>
       </ul>
     </div>
   </div>
@@ -27,6 +36,11 @@ export default {
     this.$nextTick(() => {
       this.scroll = new BScroll(this.$refs.UnitListWrapper, { click: true })
     })
+  },
+  computed: {
+    musicObjData() {
+      return this.$store.state.UnitMusicList
+    }
   }
 }
 </script>
@@ -83,6 +97,25 @@ export default {
   margin: 5px 10px 10px 10px;
   border-radius: 6px;
   box-shadow: 3px 3px 16px #ccc;
+  box-sizing: border-box;
+}
+
+.unitLi .unitTxt {
+  width: 80%;
+}
+
+.unitTxt .musicName {
+  font-size: 1.4rem;
+}
+.unitTxt .musicIndex {
+  width: 23px;
+  color: #ffb3b3;
+  text-align: center;
+}
+.unitTxt .SingerName {
+  color: #999;
+  font-size: 1.2rem;
+  margin-left: 25px;
 }
 </style>
 

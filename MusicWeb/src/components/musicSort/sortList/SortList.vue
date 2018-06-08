@@ -1,6 +1,6 @@
 <template>
   <div class="SortUnit">
-    <p class="goBack" @click="goBack">&lt;返回</p>
+    <p class="goBack" @click="goBack">&lt;返回排行榜</p>
     <unit-list/>
   </div>
 </template>

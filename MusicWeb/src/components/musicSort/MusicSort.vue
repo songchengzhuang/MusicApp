@@ -7,12 +7,13 @@
 <script>
 import SortUnit from '@/components/musicSort/sortUnit/SortUnit'
 import SortList from '@/components/musicSort/sortList/SortList'
+import { mapActions, mapMutations } from 'vuex'
 export default {
   name: 'MusicSort',
   data() {
     return {
       MusicUnit: 'SortUnit',
-      SortUnitList: []
+      SortUnitList: [] //排行榜模块列表
     }
   },
   components: {
@@ -20,9 +21,11 @@ export default {
     SortList
   },
   methods: {
+    ...mapActions(['actMusicListFn']),
+    // ...mapMutations(['dianjile']),
     sortUnitList: function(title, id) {
       if (title == 1) {
-        console.log(id)
+        this.unitMusicListFn(id)
         this.MusicUnit = 'SortList'
       } else {
         this.MusicUnit = 'SortUnit'
@@ -30,74 +33,30 @@ export default {
     },
     //排行榜单元列表
     sortListFn: function() {
-      //因为没找到接口暂且死数据
-      this.SortUnitList = [
-        {
-          sortName: '云音乐新歌榜',
-          idx: 0,
-          bgImgUrl:
-            'http://p1.music.126.net/X-xsnctFZklaFdUQfNYJwg==/109951163339113697.jpg'
-        },
-        {
-          sortName: '云音乐热歌榜',
-          idx: 1,
-          bgImgUrl:
-            'http://p1.music.126.net/X-xsnctFZklaFdUQfNYJwg==/109951163339113697.jpg'
-        },
-        {
-          sortName: '网易原创歌曲榜',
-          idx: 2,
-          bgImgUrl:
-            '../http://p1.music.126.net/X-xsnctFZklaFdUQfNYJwg==/109951163339113697.jpg'
-        },
-        {
-          sortName: '云音乐飙升榜',
-          idx: 3,
-          bgImgUrl: '../../assets/001.png'
-        },
-        {
-          sortName: 'UK排行榜周榜',
-          idx: 4,
-          bgImgUrl:
-            'http://p1.music.126.net/X-xsnctFZklaFdUQfNYJwg==/109951163339113697.jpg'
-        },
-        {
-          sortName: '美国Billboard周榜',
-          idx: 5,
-          bgImgUrl:
-            'http://p1.music.126.net/X-xsnctFZklaFdUQfNYJwg==/109951163339113697.jpg'
-        },
-        {
-          sortName: 'KTV嗨榜',
-          idx: 6,
-          bgImgUrl:
-            'http://p1.music.126.net/X-xsnctFZklaFdUQfNYJwg==/109951163339113697.jpg'
-        },
-        {
-          sortName: 'iTunes榜',
-          idx: 7,
-          bgImgUrl:
-            'http://p1.music.126.net/X-xsnctFZklaFdUQfNYJwg==/109951163339113697.jpg'
-        },
-        {
-          sortName: 'Hit FM Top榜',
-          idx: 8,
-          bgImgUrl:
-            'http://p1.music.126.net/X-xsnctFZklaFdUQfNYJwg==/109951163339113697.jpg'
-        },
-        {
-          sortName: '日本Oricon周榜',
-          idx: 9,
-          bgImgUrl:
-            'http://p1.music.126.net/X-xsnctFZklaFdUQfNYJwg==/109951163339113697.jpg'
-        },
-        {
-          sortName: '韩国Melon周榜',
-          idx: 10,
-          bgImgUrl:
-            'http://p1.music.126.net/X-xsnctFZklaFdUQfNYJwg==/109951163339113697.jpg'
-        }
-      ]
+      //因为没找到接口暂且静态json数据
+      var url = '../../../static/sortJsonData.json'
+      this.$ajax
+        .get(url)
+        .then(res => {
+          this.SortUnitList = res.data.SortUnitList
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    //排行榜音乐列表
+    unitMusicListFn: function(idx) {
+      var url = '/api/top/list?idx=' + idx
+      this.$ajax
+        .get(url)
+        .then(res => {
+          if (res.data.code == 200) {
+            this.actMusicListFn(res.data.playlist)
+          }
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   },
   mounted() {
