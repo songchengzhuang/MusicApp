@@ -41,7 +41,7 @@ export default {
     },
     //轮播图list
     swiperListFn: function() {
-      var url = 'http://localhost:3000/banner'
+      var url = '/api/banner'
       this.$ajax
         .get(url)
         .then(res => {
@@ -55,7 +55,7 @@ export default {
     },
     //歌单单元列表
     musicListFn: function() {
-      var url = 'http://localhost:3000/top/playlist'
+      var url = '/api/top/playlist'
       this.$ajax
         .get(url, {
           params: {
