@@ -6,3 +6,5 @@
 2.再进入MusicWeb文件夹——> npm(或cnpm) install ——> npm run dev
 
 3.访问：http://localhost:8080 查看应用。
+ 
+# 最后感谢大家的 指正与 点赞。
