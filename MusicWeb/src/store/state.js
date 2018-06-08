@@ -1,3 +1,7 @@
 export default ({
-  UnitMusicList: {}
+  UnitMusicList: {
+    creator: {
+      avatarUrl: ''
+    }
+  }
 })

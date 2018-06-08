@@ -1,6 +1,6 @@
 <template>
   <div class="UnitListWrapper" ref="UnitListWrapper">
-    <div class="UnitList" :key="musicObjData.creator.avatarImgIdStr+musicObjData.creator.birthday">
+    <div class="UnitList">
       <div class="unitTitle">
         <img class="titImg" :src="musicObjData.creator.avatarUrl" :alt="musicObjData.creator.backgroundImgId">
         <div class="titName txt-2-ellipsis">
@@ -9,7 +9,7 @@
         </div>
       </div>
       <ul class="unituL">
-        <li class="unitLi txt-1-ellipsis" v-for="(item , index) of musicObjData.tracks" :key="item.id+index">
+        <li class="unitLi txt-1-ellipsis" v-for="(item , index) of musicObjData.tracks" :key="index">
           <div class="unitTxt txt-1-ellipsis">
             <span class="musicIndex" v-text="index+1"></span>
             <span class="musicName" v-text="item.name"></span>
