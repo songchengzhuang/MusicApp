@@ -110,6 +110,6 @@ export default {
 }
 
 .searchInput .searchIcon {
-  margin-left: 9px;
+  margin-left: 10px;
 }
 </style>
