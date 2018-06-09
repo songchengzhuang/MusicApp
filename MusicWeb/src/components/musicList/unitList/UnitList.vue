@@ -80,8 +80,8 @@ export default {
 .UnitList .titImg {
   width: 30%;
   height: 25vw;
-  margin: 0 10px;
-  border-radius: 6px;
+  margin: 0 1rem;
+  border-radius: 0.6rem;
 }
 
 .UnitList .titName {
@@ -96,8 +96,8 @@ export default {
 .titName p {
   font-size: 1.3rem;
   line-height: 1.6rem;
-  padding: 0 10px;
-  margin: 5px 0 10px 0;
+  padding: 0 1rem;
+  margin: 0.5rem 0 1rem 0;
   letter-spacing: 3px;
 }
 
@@ -107,13 +107,13 @@ export default {
 }
 
 .unituL .unitLi {
-  height: 35px;
-  line-height: 35px;
+  height: 3.5rem;
+  line-height: 3.5rem;
   font-size: 1.3rem;
-  padding: 0 10px;
-  margin: 5px 10px 10px 10px;
+  padding: 0 1rem;
+  margin: 0.5rem 1rem 1rem 1rem;
   border-radius: 6px;
-  box-shadow: 3px 3px 16px #ccc;
+  box-shadow: 0.3rem 0.3rem 1.6rem #ccc;
   box-sizing: border-box;
 }
 
@@ -125,14 +125,14 @@ export default {
   font-size: 1.4rem;
 }
 .unitTxt .musicIndex {
-  width: 25px;
+  width: 2.5rem;
   color: #ffb3b3;
   text-align: center;
 }
 .unitTxt .SingerName {
   color: #999;
   font-size: 1.2rem;
-  margin-left: 25px;
+  margin-left: 2.5rem;
 }
 </style>
 

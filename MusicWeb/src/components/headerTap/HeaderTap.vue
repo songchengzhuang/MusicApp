@@ -27,6 +27,7 @@ export default {
   height: 4rem;
   line-height: 4rem;
   font-size: 1.6rem;
+  font-weight: 300;
   color: #333;
   /*CSS3弹性盒子*/
   display: -ms-flex;

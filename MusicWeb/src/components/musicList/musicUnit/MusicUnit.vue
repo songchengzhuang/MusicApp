@@ -63,7 +63,7 @@ export default {
 .musicUnitWrapper {
   overflow: hidden;
   position: absolute;
-  top: 23rem;
+  top: 23.5rem;
   right: 0;
   bottom: 0;
   left: 0;

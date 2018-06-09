@@ -30,18 +30,18 @@ export default {
 </script>
 <style scoped>
 .SearchReco {
-  margin-bottom: 25px;
+  margin-bottom: 2.5rem;
 }
 .SearchReco .recoTxt {
   font-size: 1.2rem;
   line-height: 1.2rem;
   font-weight: 600;
-  padding-left: 16px;
-  margin-bottom: 5px;
+  padding-left: 1.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .SearchReco .recoList {
-  margin: 5px 16px;
+  margin: 0.5rem 1.6rem;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -49,12 +49,13 @@ export default {
 }
 
 .recoList span {
-  height: 20px;
-  line-height: 20px;
+  height: 2rem;
+  line-height: 2rem;
   font-size: 1.2rem;
-  padding: 0px 15px;
-  margin: 10px 20px 0px 0px;
+  padding: 0px 1.5rem;
+  margin: 1rem 2rem 0px 0px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 0.6rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem #ccc;
 }
 </style>

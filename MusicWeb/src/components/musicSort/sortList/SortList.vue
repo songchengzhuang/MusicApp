@@ -27,7 +27,7 @@ export default {
 .SortUnit .goBack {
   font-size: 1.2rem;
   line-height: 1.2rem;
-  padding-left: 16px;
+  padding-left: 1.6rem;
   color: #ccc;
 }
 </style>

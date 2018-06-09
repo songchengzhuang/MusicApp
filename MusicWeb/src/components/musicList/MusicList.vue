@@ -113,7 +113,7 @@ export default {
 .musicList >>> .UnitListWrapper {
   overflow: hidden;
   position: absolute;
-  top: 23rem !important;
+  top: 23.3rem !important;
   right: 0;
   bottom: 0;
   left: 0;
@@ -121,7 +121,7 @@ export default {
 
 .musicList .mTitle {
   color: #666;
-  padding-left: 10px;
+  padding-left: 1rem;
   font-size: 1.4rem;
   line-height: 1.4rem;
   font-weight: 600;

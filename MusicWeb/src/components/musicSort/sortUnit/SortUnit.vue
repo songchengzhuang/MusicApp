@@ -2,7 +2,7 @@
 <template>
   <div class="musicSortWrapper" ref="musicSortWrapper">
     <ul class="musicSort">
-      <li class="sortUnit" v-for="item of SortUnitListData" :key="item.idx" :style="'background:url('+item.bgImgUrl+') no-repeat center'" @click="musicTap(item.idx)">
+      <li class="sortUnit" v-for="item of SortUnitListData" :key="item.idx" :style="'background:url('+item.bgImgUrl+') repeat center'" @click="musicTap(item.idx)">
         <div class="gradual"></div>
         <span class="unitName" v-text="item.sortName"></span>
       </li>
@@ -56,11 +56,11 @@ export default {
   font-weight: 600;
   line-height: 24vw;
   text-align: center;
-  margin: 10px 16px;
-  margin-bottom: 20px;
+  margin: 1rem 1.6rem;
+  margin-bottom: 2rem;
   height: 24vw;
-  border-radius: 6px;
-  box-shadow: 3px 4px 16px #666;
+  border-radius: 0.6rem;
+  box-shadow: 0.3rem 0.4rem 1.6rem #666;
   letter-spacing: 5px;
   background-size: cover;
   position: relative;
@@ -68,6 +68,7 @@ export default {
 .sortUnit .gradual {
   width: 100%;
   height: 8vw;
+  border-radius: 0.6rem;
   position: absolute;
   left: 0;
   bottom: 0;

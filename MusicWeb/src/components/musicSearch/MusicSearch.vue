@@ -57,7 +57,7 @@ export default {
           this.searchHist = []
           this.searchHist.unshift(this.searchName)
           localStorage.setItem('localMusicHistList', this.searchHist)
-        } else if (this.searchHist.length > 0 && this.searchHist.length < 10) {
+        } else if (this.searchHist.length > 0 && this.searchHist.length < 15) {
           //历史搜索不添加重复
           if (this.searchHist.indexOf(this.searchName) < 0) {
             this.searchHist.unshift(this.searchName)
@@ -93,23 +93,24 @@ export default {
 <style scoped>
 .musicSearch .searchInput {
   width: 90%;
-  height: 28px;
+  height: 2.8rem;
   border: 1px solid #ffe5e5;
-  border-radius: 14px;
+  border-radius: 1.4rem;
   margin: 0 auto;
-  margin-top: 5px;
+  margin-top: 0.5rem;
 }
 
 .musicSearch .searchInput .inputDom {
   width: 65%;
   height: 100%;
+  font-size: 1.2rem;
   padding: 0 10px;
-  margin-left: 20px;
+  margin-left: 2rem;
   border: none;
   outline: none;
 }
 
 .searchInput .searchIcon {
-  margin-left: 10px;
+  margin-left: 1rem;
 }
 </style>

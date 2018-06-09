@@ -39,12 +39,12 @@ export default {
   font-size: 1.2rem;
   line-height: 1.2rem;
   font-weight: 600;
-  padding-left: 16px;
-  margin-bottom: 5px;
+  padding-left: 1.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .SearchHist .histList {
-  margin: 5px 16px;
+  margin: 0.5rem 1.6rem;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-wrap: wrap;
@@ -52,13 +52,14 @@ export default {
 }
 
 .histList .histItem {
-  height: 20px;
-  line-height: 20px;
+  height: 2rem;
+  line-height: 2rem;
   font-size: 1.2rem;
-  padding: 0px 20px 0px 10px;
-  margin: 10px 20px 0px 0px;
+  padding: 0px 2rem 0px 1rem;
+  margin: 1rem 2rem 0px 0px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 0.3rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem #ccc;
   position: relative;
 }
 
