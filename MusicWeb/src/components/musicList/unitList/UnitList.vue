@@ -1,6 +1,6 @@
 <template>
   <div class="UnitListWrapper" ref="UnitListWrapper">
-    <div class="UnitList">
+    <div class="UnitList" v-show="musicObjData.creator.avatarUrl">
       <div class="unitTitle">
         <img class="titImg" :src="musicObjData.creator.avatarUrl" :alt="musicObjData.creator.backgroundImgId">
         <div class="titName txt-2-ellipsis">
@@ -9,7 +9,7 @@
         </div>
       </div>
       <ul class="unituL">
-        <li class="unitLi txt-1-ellipsis" v-for="(item , index) of musicObjData.tracks" :key="index">
+        <li class="unitLi txt-1-ellipsis" v-for="(item , index) of musicObjData.tracks" :key="index" @click="audioPlayFn(index)">
           <div class="unitTxt txt-1-ellipsis">
             <span class="musicIndex" v-text="index+1"></span>
             <span class="musicName" v-text="item.name"></span>
@@ -18,6 +18,10 @@
             </span>
           </div>
           <!-- <span>图标</span> -->
+          <audio :ref="'audioDom'+index" src="http://music.163.com/song/media/outer/url?id=33894312.mp3">
+            <source src="http://music.163.com/song/media/outer/url?id=33894312.mp3" type="audio/mpeg" />
+            <embed src="http://music.163.com/song/media/outer/url?id=33894312.mp3" />
+          </audio>
         </li>
       </ul>
     </div>
@@ -36,6 +40,13 @@ export default {
     this.$nextTick(() => {
       this.scroll = new BScroll(this.$refs.UnitListWrapper, { click: true })
     })
+  },
+  methods: {
+    audioPlayFn(index) {
+      var audioDom = this.$refs['audioDom' + index]
+      console.log(audioDom)
+      audioDom.play()
+    }
   },
   computed: {
     musicObjData() {
@@ -108,7 +119,7 @@ export default {
   font-size: 1.4rem;
 }
 .unitTxt .musicIndex {
-  width: 23px;
+  width: 25px;
   color: #ffb3b3;
   text-align: center;
 }
