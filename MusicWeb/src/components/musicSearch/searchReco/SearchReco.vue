@@ -3,22 +3,27 @@
   <div class="SearchReco">
     <p class="recoTxt">推荐搜索</p>
     <div class="recoList">
-      <span>1111231</span>
-      <span>222</span>
-      <span>333312333</span>
-      <span>222</span>
-      <span>333312333</span>
-      <span>222</span>
-      <span>333312333</span>
+      <span v-for="item of searchRecoData" :key="item.id" v-text="item.name" @click="nameTap(item.name)"></span>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: 'SearchReco',
+  props: ['searchReco'],
   data() {
     return {
       //
+    }
+  },
+  methods: {
+    nameTap(name) {
+      this.$emit('nameTapP', name)
+    }
+  },
+  computed: {
+    searchRecoData() {
+      return this.searchReco
     }
   }
 }
