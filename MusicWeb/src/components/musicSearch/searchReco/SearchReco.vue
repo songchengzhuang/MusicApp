@@ -57,5 +57,6 @@ export default {
   border: 1px solid #ccc;
   border-radius: 0.6rem;
   box-shadow: 0.2rem 0.2rem 0.5rem #ccc;
+  letter-spacing: 2px;
 }
 </style>

@@ -49,11 +49,8 @@ span {
 
 .txt-1-ellipsis {
   /*1行字符串截取*/
-  text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
   text-overflow: ellipsis;
   -ms-text-overflow: ellipsis;
   -o-text-overflow: ellipsis;

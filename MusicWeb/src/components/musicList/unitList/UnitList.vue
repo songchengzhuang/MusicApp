@@ -104,6 +104,7 @@ export default {
 .UnitList .unituL {
   width: 100%;
   padding: 0;
+  padding-bottom: 1rem;
 }
 
 .unituL .unitLi {
@@ -121,14 +122,20 @@ export default {
   width: 80%;
 }
 
-.unitTxt .musicName {
-  font-size: 1.4rem;
+.unitLi .unitTxt span {
+  display: inline;
 }
+
 .unitTxt .musicIndex {
   width: 2.5rem;
   color: #ffb3b3;
   text-align: center;
 }
+
+.unitTxt .musicName {
+  font-size: 1.4rem;
+}
+
 .unitTxt .SingerName {
   color: #999;
   font-size: 1.2rem;
