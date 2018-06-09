@@ -4,7 +4,7 @@
       <div class="unitTitle">
         <img class="titImg" :src="musicObjData.creator.avatarUrl" :alt="musicObjData.creator.backgroundImgId">
         <div class="titName txt-2-ellipsis">
-          <p class="txt-2-ellipsis" v-text="musicObjData.creator.signature"></p>
+          <p class="MListTit txt-2-ellipsis" v-text="musicObjData.name"></p>
           <p class="txt-1-ellipsis" v-text="musicObjData.creator.nickname"></p>
         </div>
       </div>
@@ -71,6 +71,12 @@ export default {
   margin-bottom: 20px;
   position: relative;
 }
+
+.unitTitle .MListTit {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
 .UnitList .titImg {
   width: 30%;
   height: 25vw;

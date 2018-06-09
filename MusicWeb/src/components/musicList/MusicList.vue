@@ -10,6 +10,7 @@
 import MusicSwiper from '@/components/musicList/swiper/MusicSwiper'
 import MusicUnit from '@/components/musicList/musicUnit/MusicUnit'
 import UnitList from '@/components/musicList/unitList/UnitList'
+import { mapActions } from 'vuex'
 export default {
   name: 'MusicList',
   data() {
@@ -28,10 +29,11 @@ export default {
     UnitList
   },
   methods: {
+    ...mapActions(['actMusicListFn']),
     //歌单和歌单列表
     MusicListTitle: function(title, id) {
       if (title == 1) {
-        console.log(id)
+        this.musicListFn(id)
         this.UnitNme = '返回歌单'
         this.MusicUnit = 'UnitList'
       } else {
@@ -54,7 +56,7 @@ export default {
         })
     },
     //歌单单元列表
-    musicListFn: function() {
+    unitListFn: function() {
       var url = '/api/top/playlist'
       this.$ajax
         .get(url, {
@@ -74,15 +76,35 @@ export default {
           console.log(error)
         })
     },
+    //歌单歌曲列表
+    musicListFn: function(id) {
+      var url = '/api/playlist/detail'
+      this.$ajax
+        .get(url, {
+          params: {
+            id
+          }
+        })
+        .then(res => {
+          if (res.data.code == 200) {
+            console.log(res.data.playlist)
+            this.actMusicListFn(res.data.playlist)
+          }
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    //添加更多
     moreUnit: function() {
       this.unitNum += 10
-      this.musicListFn()
+      this.unitListFn()
     }
   },
   mounted() {
     this.$nextTick(() => {
       this.swiperListFn()
-      this.musicListFn()
+      this.unitListFn()
     })
   }
 }
