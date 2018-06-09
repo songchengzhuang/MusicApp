@@ -78,6 +78,14 @@ export default {
     },
     //歌单歌曲列表
     musicListFn: function(id) {
+      //先清空歌曲列表
+      var UnitMusicList = {
+        creator: {
+          avatarUrl: ''
+        }
+      }
+      this.actMusicListFn(UnitMusicList)
+
       var url = '/api/playlist/detail'
       this.$ajax
         .get(url, {
@@ -87,7 +95,6 @@ export default {
         })
         .then(res => {
           if (res.data.code == 200) {
-            console.log(res.data.playlist)
             this.actMusicListFn(res.data.playlist)
           }
         })

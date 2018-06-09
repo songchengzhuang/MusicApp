@@ -46,6 +46,14 @@ export default {
     },
     //排行榜音乐列表
     unitMusicListFn: function(idx) {
+      //先清空歌曲列表
+      var UnitMusicList = {
+        creator: {
+          avatarUrl: ''
+        }
+      }
+      this.actMusicListFn(UnitMusicList)
+
       var url = '/api/top/list?idx=' + idx
       this.$ajax
         .get(url)
