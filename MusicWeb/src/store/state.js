@@ -3,5 +3,12 @@ export default ({
     creator: {
       avatarUrl: ''
     }
+  },
+  playMusicData: {
+    name: '',
+    id: '',
+    musicUrl: '',
+    singerArr: [],
+    musicImg: ''
   }
 })

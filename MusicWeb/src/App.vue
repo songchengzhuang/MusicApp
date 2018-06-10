@@ -4,15 +4,18 @@
     <keep-alive>
       <router-view/>
     </keep-alive>
+    <store-play/>
   </div>
 </template>
 
 <script>
 import HeaderTap from '@/components/headerTap/HeaderTap'
+import StorePlay from '@/components/storePlay/StorePlay'
 export default {
   name: 'App',
   components: {
-    HeaderTap
+    HeaderTap,
+    StorePlay
   }
 }
 </script>

@@ -1,0 +1,86 @@
+<template>
+  <div class="StorePlay" v-if="playMusicObj.name">
+    <div class="playBg"></div>
+    <img class="playImg" :src="playMusicObj.musicImg" alt="图片" :key="playMusicObj.id+'img'" />
+    <span class="playName" v-text="playMusicObj.name"></span>
+    <span class="playIcon" @click="audioPlayFn">播放</span>
+    <audio id="audioDom" autoplay ref="audioDom" :key="playMusicObj.id">
+      <source :src="playMusicObj.musicUrl" type="audio/mpeg" />
+      <embed :src="playMusicObj.musicUrl" />
+    </audio>
+  </div>
+</template>
+<script>
+import { mapState } from 'vuex'
+export default {
+  name: 'StorePlay',
+  methods: {
+    audioPlayFn() {
+      var audioDom = this.$refs.audioDom
+      if (audioDom.paused || audioDom.ended) {
+        audioDom.play()
+      } else {
+        audioDom.pause()
+      }
+    }
+  },
+  computed: {
+    ...mapState(['playMusicData']),
+    playMusicObj() {
+      return this.playMusicData
+    }
+  },
+  watch: {
+    //
+  }
+}
+</script>
+<style scoped>
+.StorePlay,
+.StorePlay .playBg {
+  width: 100%;
+  height: 6rem;
+  border-top-left-radius: 0.6rem;
+  border-top-right-radius: 0.6rem;
+}
+
+.StorePlay {
+  color: #fff;
+  padding: 0 1.6rem;
+  box-sizing: border-box;
+  /* 固定定位 */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+}
+.StorePlay .playBg {
+  background-color: #999;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.StorePlay .playImg {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.StorePlay .playName {
+  font-size: 1.3rem;
+  line-height: 6rem;
+  font-weight: 600;
+  margin-left: 4rem;
+  letter-spacing: 2px;
+}
+.StorePlay .playIcon {
+  font-size: 1.4rem;
+  line-height: 6rem;
+  margin-left: 4rem;
+}
+</style>
+

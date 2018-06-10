@@ -9,7 +9,7 @@
         </div>
       </div>
       <ul class="unituL">
-        <li class="unitLi txt-1-ellipsis" v-for="(item , index) of musicObjData.tracks" :key="index" @click="audioPlayFn(index)">
+        <li class="unitLi txt-1-ellipsis" v-for="(item , index) of musicObjData.tracks" :key="item.id" @click="playMusicUrl(item)">
           <div class="unitTxt txt-1-ellipsis">
             <span class="musicIndex" v-text="index+1"></span>
             <span class="musicName" v-text="item.name"></span>
@@ -18,10 +18,6 @@
             </span>
           </div>
           <!-- <span>图标</span> -->
-          <audio :ref="'audioDom'+index" src="http://music.163.com/song/media/outer/url?id=33894312.mp3">
-            <source src="http://music.163.com/song/media/outer/url?id=33894312.mp3" type="audio/mpeg" />
-            <embed src="http://music.163.com/song/media/outer/url?id=33894312.mp3" />
-          </audio>
         </li>
       </ul>
     </div>
@@ -29,6 +25,8 @@
 </template>
 <script>
 import BScroll from 'better-scroll'
+import { mapState } from 'vuex'
+import { mapActions } from 'vuex'
 export default {
   name: 'UnitList',
   data() {
@@ -42,15 +40,15 @@ export default {
     })
   },
   methods: {
-    audioPlayFn(index) {
-      var audioDom = this.$refs['audioDom' + index]
-      console.log(audioDom)
-      audioDom.play()
+    ...mapActions(['actPlayMusicUrl']),
+    playMusicUrl(id) {
+      this.actPlayMusicUrl(id)
     }
   },
   computed: {
+    ...mapState(['UnitMusicList']),
     musicObjData() {
-      return this.$store.state.UnitMusicList
+      return this.UnitMusicList
     }
   }
 }
@@ -134,6 +132,7 @@ export default {
 
 .unitTxt .musicName {
   font-size: 1.4rem;
+  margin-left: 8px;
 }
 
 .unitTxt .SingerName {

@@ -48,7 +48,9 @@ export default {
     },
     //获取本地历史记录
     getLocalSearchFn() {
-      this.searchHist = localStorage.getItem('localMusicHistList').split(',')
+      if (localStorage.getItem('localMusicHistList')) {
+        this.searchHist = localStorage.getItem('localMusicHistList').split(',')
+      }
     },
     //保存历史搜索
     searchHistFn() {
@@ -104,6 +106,7 @@ export default {
   width: 65%;
   height: 100%;
   font-size: 1.2rem;
+  color: #ff8080;
   padding: 0 10px;
   margin-left: 2rem;
   border: none;
