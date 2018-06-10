@@ -2,7 +2,7 @@
   <div class="StorePlay" v-if="playMusicObj.name">
     <div class="playBg"></div>
     <img class="playImg" :src="playMusicObj.musicImg" alt="图片" :key="playMusicObj.id+'img'" />
-    <span class="playName" v-text="playMusicObj.name"></span>
+    <span class="playName txt-1-ellipsis" v-text="playMusicObj.name"></span>
     <span class="playIcon" @click="audioPlayFn" v-text="iconMusic?'播放':'暂停'"></span>
     <audio id="audioDom" autoplay ref="audioDom" :key="playMusicObj.id">
       <source :src="playMusicObj.musicUrl" type="audio/mpeg" />
@@ -80,16 +80,19 @@ export default {
 }
 
 .StorePlay .playName {
+  width: 50%;
   font-size: 1.3rem;
   line-height: 6rem;
   font-weight: 600;
-  margin-left: 4rem;
+  margin-left: 1.5rem;
   letter-spacing: 2px;
+  vertical-align: middle;
 }
 .StorePlay .playIcon {
   font-size: 1.4rem;
   line-height: 6rem;
-  margin-left: 4rem;
+  margin-left: 2rem;
+  vertical-align: middle;
 }
 </style>
 
