@@ -3,7 +3,7 @@
     <div class="playBg"></div>
     <img class="playImg" :src="playMusicObj.musicImg" alt="图片" :key="playMusicObj.id+'img'" />
     <span class="playName" v-text="playMusicObj.name"></span>
-    <span class="playIcon" @click="audioPlayFn">播放</span>
+    <span class="playIcon" @click="audioPlayFn" v-text="iconMusic?'播放':'暂停'"></span>
     <audio id="audioDom" autoplay ref="audioDom" :key="playMusicObj.id">
       <source :src="playMusicObj.musicUrl" type="audio/mpeg" />
       <embed :src="playMusicObj.musicUrl" />
@@ -14,13 +14,20 @@
 import { mapState } from 'vuex'
 export default {
   name: 'StorePlay',
+  data() {
+    return {
+      iconMusic: false
+    }
+  },
   methods: {
     audioPlayFn() {
       var audioDom = this.$refs.audioDom
       if (audioDom.paused || audioDom.ended) {
         audioDom.play()
+        this.iconMusic = false
       } else {
         audioDom.pause()
+        this.iconMusic = true
       }
     }
   },
@@ -31,7 +38,9 @@ export default {
     }
   },
   watch: {
-    //
+    playMusicObj() {
+      this.iconMusic = false
+    }
   }
 }
 </script>
