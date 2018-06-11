@@ -34,10 +34,21 @@ export default {
       //
     }
   },
+  mounted() {
+    this.$nextTick(() => {
+      this.scroll = new BScroll(this.$refs.musicUnitWrapper, {
+        click: true,
+        pullUpLoad: true
+      })
+      //上拉加载更多
+      this.scroll.on('pullingUp', this.moreUnit)
+    })
+  },
   methods: {
     musicTap: function(m_id) {
       this.$emit('MusicUnitList', 1, m_id)
     },
+    //上拉加载跟多
     moreUnit: function() {
       if (this.MoreData) {
         this.$emit('moreUnit')
@@ -52,10 +63,11 @@ export default {
       return this.More
     }
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.scroll = new BScroll(this.$refs.musicUnitWrapper, { click: true })
-    })
+  watch: {
+    musicListData() {
+      this.scroll.finishPullUp()
+      this.scroll.refresh()
+    }
   }
 }
 </script>
